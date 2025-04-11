@@ -1,0 +1,62 @@
+
+/venv/
+ENV/
+env/
+.venv/
+.env/
+env.bak/
+venv.bak/
+
+// # Jupyter Notebook
+// .ipynb_checkpoints
+
+// # Streamlit
+.streamlit/
+
+// # Model cache
+data/cache/
+*.pkl
+*.h5
+*.pt
+*.bin
+
+// # IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.project
+.pydevproject
+.settings/
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+htmlcov/
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+// # Hugging Face cache
+.huggingface/
+
+// # Project specific
+summaries/
+*.md.bak
