@@ -104,7 +104,7 @@ summarization_mode = st.sidebar.radio(
 max_length = st.sidebar.slider(
     "Maximum Summary Length", 
     min_value=50, 
-    max_value=500, 
+    max_value=1000, 
     value=150,
     help="Maximum number of words in the summary"
 )
