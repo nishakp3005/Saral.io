@@ -237,8 +237,11 @@ The abstractive implementation handles longer content through a chunking approac
   - Markdown: Formatted summary for export
 
   ![Saral.io Summary Interface](./images/image2.png)
+
   ![Saral.io Article Details Interface](./images/image3.png)
+
   ![Saral.io Full Scraped Text Interface](./images/image4.png)
+
   ![Saral.io Markdown Interface](./images/image5.png)
 
 - **Exportable documentation** in markdown format with:
