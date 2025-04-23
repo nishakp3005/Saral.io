@@ -36,34 +36,34 @@ st.markdown("""
         font-size: 2.5rem;
         font-weight: bold;
         color: #1E88E5;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .subheader {
         font-size: 1.5rem;
         font-weight: bold;
-        color: #424242;
-        margin: 1rem 0;
+        color: #1E88E5;
+        margin: 0.5rem 0;
     }
     .article-title {
         font-size: 1.8rem;
         font-weight: bold;
         color: #2E7D32;
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.25rem;
     }
     .metadata {
         font-size: 0.9rem;
         color: #616161;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
     }
     .summary-text {
-        font-size: 1.1rem;
+        font-size: 1rem;
         line-height: 1.6;
         color: #212121;
     }
     .keyword-tag {
         background-color: #E3F2FD;
         padding: 0.3rem 0.6rem;
-        border-radius: 1rem;
+        border-radius: 0.5rem;
         margin-right: 0.5rem;
         font-size: 0.9rem;
     }
@@ -83,9 +83,15 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-# Sidebar
-st.sidebar.markdown('<div class="main-header">Saral.io</div>', unsafe_allow_html=True)
-st.sidebar.markdown("📰 Advanced News Article Summarizer")
+# About section in sidebar
+st.sidebar.markdown('<div class="subheader">About</div>', unsafe_allow_html=True)
+st.sidebar.info(
+    "Saral.io is an advanced news article summarizer that leverages AI to provide concise, "
+    "insightful summaries of any online article. It offers multiple summarization methods, "
+    "keyword extraction, sentiment analysis, and more.\n\n"
+    "Simply paste any news URL to get started."
+)
+st.sidebar.markdown("---")
 
 # Summarization options
 st.sidebar.markdown('<div class="subheader">Summarization Options</div>', unsafe_allow_html=True)
@@ -124,27 +130,27 @@ if summarization_mode == "Abstractive":
 
 # Summary length options - adjusted based on performance mode
 if performance_mode == "Fast":
-    max_length_default = 100
-    min_length_default = 40
-elif performance_mode == "High Quality":
     max_length_default = 200
     min_length_default = 50
+elif performance_mode == "High Quality":
+    max_length_default = 250
+    min_length_default = 100
 else:  # Balanced
-    max_length_default = 150
-    min_length_default = 50
+    max_length_default = 200
+    min_length_default = 100
 
 max_length = st.sidebar.slider(
     "Maximum Summary Length", 
     min_value=50, 
-    max_value=500, 
+    max_value=1000, 
     value=max_length_default,
     help="Maximum number of words in the summary"
 )
 
 min_length = st.sidebar.slider(
     "Minimum Summary Length", 
-    min_value=30, 
-    max_value=200, 
+    min_value=10, 
+    max_value=300, 
     value=min_length_default,
     help="Minimum number of words in the summary"
 )
@@ -188,15 +194,7 @@ use_cache = st.sidebar.checkbox(
     help="Speed up processing by using cached results"
 )
 
-# About section in sidebar
-st.sidebar.markdown("---")
-st.sidebar.markdown('<div class="subheader">About</div>', unsafe_allow_html=True)
-st.sidebar.info(
-    "Saral.io is an advanced news article summarizer that leverages AI to provide concise, "
-    "insightful summaries of any online article. It offers multiple summarization methods, "
-    "keyword extraction, sentiment analysis, and more.\n\n"
-    "Simply paste any news URL to get started."
-)
+
 
 # Main content
 st.markdown('<div class="main-header">📰 Saral.io News Article Summarizer</div>', unsafe_allow_html=True)
@@ -215,11 +213,12 @@ process_button = col1.button("Summarize", type="primary", use_container_width=Tr
 # Show example URLs
 with st.expander("Need examples? Try these URLs"):
     example_urls = [
-        "https://www.bbc.com/news/world-us-canada-67063546",
-        "https://www.theguardian.com/technology/article/2023/oct/15/ai-artificial-intelligence-future",
-        "https://www.nytimes.com/2023/10/14/climate/climate-change-solutions.html",
-        "https://www.cnn.com/2023/10/12/politics/joe-biden-israel-hamas-conflict/index.html",
-        "https://www.reuters.com/technology/artificial-intelligence-poses-extinction-risk-experts-warn-2023-05-30/"
+        "https://www.bbc.com/news/articles/ckgxk40ndk1o",
+        "https://www.theguardian.com/fashion/2025/apr/20/true-blue-why-the-chore-jacket-just-wont-quit",
+        "https://www.nytimes.com/2025/04/23/business/china-tariffs-robots-automation.html",
+        "https://edition.cnn.com/2025/04/22/business/trump-china-trade-war-reduction-hnk-intl/index.html",
+        "https://www.reuters.com/world/india/top-indian-funds-bet-domestic-sectors-lead-market-rebound-amid-global-jitters-2025-04-23/",
+        "https://www.aljazeera.com/news/liveblog/2025/4/23/live-israel-attacks-childrens-hospital-in-gaza-polio-campaign-at-a-halt"
     ]
     
     col1, col2, col3 = st.columns(3)
@@ -395,7 +394,7 @@ if process_button and url:
             with tab3:
                 st.markdown(f'<div class="article-title">{title}</div>', unsafe_allow_html=True)
                 st.markdown("### Full Article Text")
-                st.markdown(f'<div style="height:400px;overflow-y:scroll;padding:1rem;border:1px solid #e0e0e0;border-radius:4px;">{text}</div>', unsafe_allow_html=True)
+                st.markdown(f'<div style="height:400px;overflow-y:scroll;padding:0.5rem;border:1px solid #e0e0e0;border-radius:4px;">{text}</div>', unsafe_allow_html=True)
             
             with tab4:
                 st.markdown("### Markdown Summary")
