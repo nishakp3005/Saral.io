@@ -17,17 +17,20 @@ A powerful web application designed to summarize news articles from any URL. Use
 ## Installation
 
 1. Clone this repository:
+
    ```
    git clone https://github.com/yourusername/summarizer.git
    cd summarizer
    ```
 
 2. Install dependencies:
+
    ```
    pip install -r requirements.txt
    ```
 
 3. Run the application:
+
    ```
    streamlit run app.py
    ```
@@ -62,7 +65,7 @@ summarizer/
 │
 ├── app.py               # Main Streamlit application
 ├── requirements.txt     # Dependencies
-├── .gitignore          
+├── .gitignore
 ├── README.md            # Project documentation
 ├── utils/
 │   ├── __init__.py
