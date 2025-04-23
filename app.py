@@ -14,7 +14,7 @@ except LookupError:
 
 # Page configuration
 st.set_page_config(
-    page_title="Summarizer.com",
+    page_title="Saral.io",
     page_icon="📰",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -90,7 +90,7 @@ def format_to_markdown(title, summary, authors=None, publish_date=None, keywords
     return md
 
 # Sidebar
-st.sidebar.title("Summarizer.com")
+st.sidebar.title("Saral.io")
 st.sidebar.markdown("📰 News Article Summarizer")
 
 # Summarization options

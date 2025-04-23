@@ -1,4 +1,4 @@
-# Summarizer.com
+# Saral.io
 
 A powerful web application designed to summarize news articles from any URL. Users can input the URL of a news article, and the platform will scrape the content, process it, and generate a concise summary in markdown format.
 
